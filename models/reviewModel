@@ -1,0 +1,18 @@
+const { Sequelize, DataTypes } = require('sequelize');
+const db = require('../config/database'); 
+
+const Review = db.define('Review', {
+    content: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+            notNull: {
+                msg: 'Review content cannot be empty',
+            },
+        }
+    },
+}, {
+    timestamps: false  
+});
+
+module.exports = Review;
